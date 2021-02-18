@@ -48,7 +48,7 @@ object ArrowMonad extends zio.App {
       h0 <- ZIO.effectTotal(h)
     } yield f0.andThen(g0).andThen(h0).apply(din)
 
-  // Run a cmposed Monad effect computation
+  // Run a composed Monad effect computation
   val prog1 = monadComposed(10)
 
   def run(args: List[String]) = (prog0 <*> prog1).flatMap(a => putStrLn(a.toString)).exitCode
